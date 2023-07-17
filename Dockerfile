@@ -32,6 +32,8 @@ RUN npm install
 
 RUN yarn
 
+ENV ALLOW_HOSTS=/.*/
+
 EXPOSE 3000
 
-CMD ["bash", "-c", "redis-server & mailcatcher --ip 0.0.0.0 && bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0 && bundle exec sidekiq && bundle exec rails db:seed"]
+CMD ["bash", "-c", "redis-server & mailcatcher --ip 0.0.0.0 && bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0 && bundle exec sidekiq"]
