@@ -9,7 +9,7 @@ A aplicação em estudo é o **Decidim** que é um framework de democracia parti
 
 Para executar a aplicação em sua máquina, basta seguir o passo-a-passo descritos neste [Guia de Configuração do Ambiente](./Instrucoes_de_Configuracao.md).
 
-# Resumo da aplicação 
+# Resumo da aplicaçã
 
 O **Decidim** é um framework que permite qualquer pessoa criar e configurar uma plataforma web para ser utilizada como uma rede política de participação democrática. A plataforma permite que qualquer organização (prefeitura local, associação, universidade, ONG, bairro ou cooperativa) crie processos de participação em massa para planejamento estratégico, orçamento participativo, desenho colaborativo de normativos, espaços urbanos e processos eleitorais.
 
