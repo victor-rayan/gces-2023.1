@@ -25,13 +25,13 @@ jobs:
       - name: Run containers
         run: |
           docker-compose up -d
-          docker network connect mynetwork gces-20231_redis-queue_1
-          docker network connect mynetwork gces-20231_postgres_1
+          docker network connect mynetwork trabalho-individual-2023-1-victor-rayan_redis-queue_1
+          docker network connect mynetwork trabalho-individual-2023-1-victor-rayan_postgres_1
 
-      - name: Wait for containers to start
+      - name: Wait for containers
         run: sleep 30
 
-      - name: Run tests
+      - name: Run Tests
         run: docker-compose run app bash -c "bundle exec rails test"
 
       - name: Run Lint
@@ -43,12 +43,14 @@ jobs:
       - name: Stop and remove containers
         run: docker-compose down
 
-  deploy_simulation:
+  deploy_to_railway:
     runs-on: ubuntu-latest
-    needs: [build_test_lint]
+    env:
+      RAILWAY_TOKEN: 40628d33-ae12-4652-a048-a921aeb7756b
+      RAILWAY_PROJECT_ID: fcde3a1a-a4d3-465a-8504-dbd049f2e58e
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Simulate Deploy to GCP Cloud Run
-        run: echo "Deployment to GCP Cloud Run simulated successfully!"    
+      - name: Deploy to Railway
+        run: |
+          curl -X POST "https://api.railway.app/v1/projects/fcde3a1a-a4d3-465a-8504-dbd049f2e58e/deployments" -H "Authorization: Bearer 40628d33-ae12-4652-a048-a921aeb7756b"     
+     
  
