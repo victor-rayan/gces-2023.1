@@ -32,13 +32,6 @@ RUN npm install
 
 RUN yarn
 
-ENV ALLOW_HOSTS=/.*/
-ENV POSTGRES_HOST=containers-us-west-146.railway.app
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=OFuv5B0YawRpJYwHSAHv
-ENV POSTGRES_DB=railway
-ENV DATABASE_PORT=5802
-
 EXPOSE 3000
 
 CMD ["bash", "-c", "redis-server & mailcatcher --ip 0.0.0.0 && bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0 && bundle exec sidekiq"]
